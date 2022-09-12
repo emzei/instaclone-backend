@@ -12,7 +12,7 @@ const typeDefs = gql`
 // A map of functions which return data for the schema.
 const resolvers = {
   Query: {
-    hello: () => 'bebe',
+    hello: () => 'hiiii',
   },
 };
 
