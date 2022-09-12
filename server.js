@@ -4,6 +4,7 @@ import { ApolloServer, gql } from "apollo-server";
 // The GraphQL schema
 const typeDefs = gql`
   type Movie {
+    id: Int
     title: String
     year: Int
   }
@@ -12,8 +13,8 @@ const typeDefs = gql`
     movie: Movie
   }
   type Mutation {
-    createMovie(title:String!): Boolean
-    deleteMovie(title:String!): Boolean
+    createMovie(title: String!): Boolean
+    deleteMovie(title: String!): Boolean
   }
 `;
 
@@ -21,19 +22,19 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     movies: () => [],
-    movie: () => ({ "title": "Hello", year: 2022 }),
+    movie: () => ({ title: "Hello", year: 2022 }),
   },
   Mutation: {
     // root, args, context, info
-    createMovie: (_, {title}) => {
+    createMovie: (_, { title }) => {
       console.log(title);
-      return true
+      return true;
     },
-    deleteMovie: (_, {title}) => {
+    deleteMovie: (_, { title }) => {
       console.log(title);
-      return true      
-    }
-  }
+      return true;
+    },
+  },
 };
 
 const server = new ApolloServer({
@@ -41,8 +42,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server
-  .listen()
-  .then(() => {
-    console.log(`🚀 Server ready at http://localhost:4000/`);
-  });
+server.listen().then(() => {
+  console.log(`🚀 Server ready at http://localhost:4000/`);
+});
