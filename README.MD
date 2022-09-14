@@ -6,8 +6,8 @@ How to run:
 <pre><code>npm run dev</code></pre>
 
 ## User : 
-- [ ] Create Account
-- [ ] See Profile
+- [x] Create Account
+- [x] See Profile
 - [ ] Login
 - [ ] Edit Profile
 - [ ] Follow User
