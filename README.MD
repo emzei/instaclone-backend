@@ -9,6 +9,6 @@ How to run:
 - [x] Create Account
 - [x] See Profile
 - [x] Login
-- [ ] Edit Profile
+- [x] Edit Profile
 - [ ] Follow User
 - [ ] Change Avatar (Image Upload)

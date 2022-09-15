@@ -6,16 +6,18 @@ export default {
   Mutation: {
     editProfile: async (
       _,
-      { firstName, lastName, username, email, password: newPassword }
+      { firstName, lastName, username, email, password: newPassword, token }
     ) => {
       let uglyPassword = null;
       if (newPassword) {
         uglyPassword = await bcrypt.hash(newPassword, 10);
       }
 
+      const { id } = jwt.verify(token, process.env.SECRET_KEY);
+
       const updatedUser = await client.user.update({
         where: {
-          id: 1, // TODO: Fix
+          id,
         },
         data: {
           firstName,
