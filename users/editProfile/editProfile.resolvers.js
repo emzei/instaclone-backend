@@ -8,9 +8,10 @@ const resolverFn = async (
   { loggedInUser }
 ) => {
   const { filename, createReadStream } = await avatar;
-  const readStream = createReadStream();
-  const writeStream = fs.createWriteStream(process.cwd()+'/uploads/'+filename);
+  const avatarPath=process.cwd()+'/uploads/'+filename;
 
+  const readStream = createReadStream();
+  const writeStream = fs.createWriteStream(avatarPath);
   readStream.pipe(writeStream);
 
   let uglyPassword = null;
@@ -28,7 +29,7 @@ const resolverFn = async (
       username,
       email,
       bio, 
-      avatar: filename,
+      avatar: avatarPath,
       ...(uglyPassword && { password: uglyPassword }),
     },
   });
