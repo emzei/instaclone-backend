@@ -132,3 +132,4 @@ dist
 *.sql
 **/migration.sql
 **/migration_lock.toml
+uploads/*
